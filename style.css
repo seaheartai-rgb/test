@@ -14,14 +14,15 @@ body, html {
     background-color: #FFFFFF;
 }
 
+/* تفکیک کامل صفحات و جلوگیری از نمایش هم‌زمان */
 .page {
-    display: none;
+    display: none !important;
     width: 100%;
     min-height: 100vh;
 }
 
 .page.active {
-    display: flex;
+    display: flex !important;
 }
 
 /* ---------------- صفحه اول ---------------- */
@@ -169,7 +170,7 @@ button[type="submit"]:hover {
 /* ---------------- صفحه دوم (دعوت‌نامه) ---------------- */
 #page-invitation {
     background-color: #F6E5C9;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 30px 15px;
@@ -235,9 +236,10 @@ button[type="submit"]:hover {
     display: block;
 }
 
+/* جایگاه جدید و دقیق نام روی کارت دعوت */
 .guest-name-overlay {
     position: absolute;
-    top: 45.5%; 
+    top: 44.0%; 
     right: 48%; 
     transform: translateY(-50%);
     font-size: clamp(0.75rem, 2.1vw, 1.05rem);
@@ -295,24 +297,24 @@ button[type="submit"]:hover {
     cursor: pointer;
 }
 
-/* استایل کادر بلر و ثابت طراح در گوشه پایین و سمت چپ هر دو صفحه */
+/* کادر بلر و ثابت طراح در گوشه پایین و سمت چپ هر دو صفحه */
 .designer-badge {
     position: fixed;
     bottom: 15px;
     left: 15px;
-    background: rgba(255, 255, 255, 0.45); /* پس‌زمینه نیمه شفاف و کمرنگ */
-    backdrop-filter: blur(6px);              /* افکت بلر ملایم */
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 6px 12px;
-    border-radius: 10px;                     /* گوشه‌های گرد */
+    border-radius: 10px;
     font-size: 0.75rem;
     font-weight: bold;
-    color: #444444;                          /* رنگ متن ملایم و خوانا */
+    color: #444444;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 999;
     letter-spacing: 0.5px;
-    pointer-events: none;                    /* مانع تداخل با کلیک‌های کاربر روی المان‌های دیگر */
+    pointer-events: none;
 }
 
 @media (max-width: 480px) {
