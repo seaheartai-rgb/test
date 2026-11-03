@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوت‌نامه همایش سراسری بیمه کارآفرین</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- صفحه اول -->
+    <div id="page-home" class="page active">
+        <div class="home-container">
+            <!-- لوگوی بیمه کارآفرین -->
+            <img src="logo.png" alt="لوگو بیمه کارآفرین" class="top-logo">
+            
+            <!-- باکس سبز پاستیلی با گوشه‌های گرد و متن همایش -->
+            <div class="event-info-box">
+                <h2>همایش سراسری مدیران و شبکه فروش</h2>
+                <p>اختتامیه پانزدهمین دوره جشنواره فروش بیمه‌های زندگی و اموال</p>
+                <span class="event-year">نیمه اول سال ۱۴۰۵</span>
+            </div>
+            
+            <!-- ویدئو با قابلیت پخش خودکار و بی‌صدا بدون نیاز به کلیک -->
+            <div class="video-wrapper">
+                <video id="intro-video" src="home-anim.mp4" autoplay muted playsinline></video>
+            </div>
+
+            <!-- بخش ورود کد ملی (ابتدا مخفی) -->
+            <div id="form-container" class="hidden-section">
+                <p class="instruction-text">میهمان گرامی، لطفا جهت مشاهده دعوت‌نامه خود، کدملی خود را وارد کنید:</p>
+                
+                <form id="national-id-form" onsubmit="event.preventDefault(); checkNationalId();">
+                    <input 
+                        type="text" 
+                        id="national-id-input" 
+                        maxlength="10" 
+                        placeholder="کد ملی ۱۰ رقمی"
+                        inputmode="numeric"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                    >
+                    <button type="submit">مشاهده دعوت‌نامه</button>
+                </form>
+                
+                <div id="error-message" class="error-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحه دوم: نمایش کارت دعوت -->
+    <div id="page-invitation" class="page">
+        <div class="card-wrapper">
+            <img src="invation.jpg" alt="کارت دعوت" class="invitation-img">
+            <div id="guest-name" class="guest-name-overlay"></div>
+        </div>
+    </div>
+
+    <script src="guests.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
