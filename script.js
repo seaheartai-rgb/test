@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const video = document.getElementById('intro-video');
     
-    // پخش خودکار ویدئو به صورت بی‌صدا
     video.muted = true;
     let playPromise = video.play();
 
     if (playPromise !== undefined) {
         playPromise.catch(error => {
-            // رفع محدودیت مرورگر برای Autoplay در صورت نیاز به کلیک کاربر
             document.addEventListener('click', function handler() {
                 video.muted = true;
                 video.play();
@@ -16,9 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // رخداد اتمام پخش ویدئو
     video.onended = function() {
-        // تاخیر 0.5 ثانیه پس از پایان ویدئو
         setTimeout(() => {
             const formContainer = document.getElementById('form-container');
             formContainer.classList.add('show');
@@ -63,7 +59,6 @@ function showInvitation(name) {
     pageInv.style.display = 'flex';
 }
 
-// تابع بازگشت به صفحه اول و لود مجدد ویدئو
 function goBackToHome() {
     const pageHome = document.getElementById('page-home');
     const pageInv = document.getElementById('page-invitation');
@@ -72,11 +67,9 @@ function goBackToHome() {
     const errorDiv = document.getElementById('error-message');
     const formContainer = document.getElementById('form-container');
 
-    // پاک کردن فیلد کد ملی و خطاها
     if(inputField) inputField.value = '';
     if(errorDiv) errorDiv.innerText = '';
     
-    // پنهان کردن فرم و بازنشانی ویدئو
     formContainer.classList.remove('show');
     
     pageInv.classList.remove('active');
@@ -85,7 +78,6 @@ function goBackToHome() {
     pageHome.classList.add('active');
     pageHome.style.display = 'flex';
 
-    // ریست کردن و پخش مجدد ویدئو از ابتدا
     video.currentTime = 0;
     video.play();
 }

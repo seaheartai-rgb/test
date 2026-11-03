@@ -49,20 +49,29 @@
 
     <!-- صفحه دوم: نمایش کارت دعوت -->
     <div id="page-invitation" class="page">
-        <!-- دکمه بازگشت به صفحه اول -->
+        <!-- دکمه بازگشت شناور در بالا سمت راست که با اسکرول حرکت می‌کند -->
         <button class="back-btn" onclick="goBackToHome()">بازگشت</button>
 
         <div class="card-wrapper">
             <img src="invation.jpg" alt="کارت دعوت" class="invitation-img">
             <div id="guest-name" class="guest-name-overlay"></div>
             
-            <!-- کادر کوچک لوکیشن هتل برای اتصال به گوگل مپ -->
+            <!-- کادر نقشه گوگل تعبیه‌شده در گوشه سمت چپ و پایین (مشابه عکس ارسالی) -->
             <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x3f8c03a97cf2fb4d:0x4e799c698c8684f7?sa=X&ved=1t:8290&ictx=111" 
                target="_blank" 
-               class="map-location-box" 
+               class="map-widget-box" 
                title="مشاهده موقعیت هتل در گوگل مپ">
-                <div class="map-icon">📍</div>
-                <span>مسیریابی هتل در نقشه</span>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.5!2d51.4!3d35.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8c03a97cf2fb4d%3A0x4e799c698c8684f7!2sParsian%20Caspian%20Hotel!5e0!3m2!1sen!2sfa!4v1650000000000!5m2!1sen!2sfa" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <!-- لایه پوششی برای کلیک آسان روی کل کادر نقشه -->
+                <div class="map-overlay-click"></div>
             </a>
         </div>
     </div>
