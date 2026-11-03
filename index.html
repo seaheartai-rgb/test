@@ -21,7 +21,7 @@
                 <span class="event-year">نیمه اول سال ۱۴۰۵</span>
             </div>
             
-            <!-- ویدئو با قابلیت پخش خودکار و بی‌صدا بدون نیاز به کلیک -->
+            <!-- ویدئو با قابلیت پخش خودکار و بی‌صدا -->
             <div class="video-wrapper">
                 <video id="intro-video" src="home-anim.mp4" autoplay muted playsinline></video>
             </div>
@@ -49,9 +49,21 @@
 
     <!-- صفحه دوم: نمایش کارت دعوت -->
     <div id="page-invitation" class="page">
+        <!-- دکمه بازگشت به صفحه اول -->
+        <button class="back-btn" onclick="goBackToHome()">بازگشت</button>
+
         <div class="card-wrapper">
             <img src="invation.jpg" alt="کارت دعوت" class="invitation-img">
             <div id="guest-name" class="guest-name-overlay"></div>
+            
+            <!-- کادر کوچک لوکیشن هتل برای اتصال به گوگل مپ -->
+            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x3f8c03a97cf2fb4d:0x4e799c698c8684f7?sa=X&ved=1t:8290&ictx=111" 
+               target="_blank" 
+               class="map-location-box" 
+               title="مشاهده موقعیت هتل در گوگل مپ">
+                <div class="map-icon">📍</div>
+                <span>مسیریابی هتل در نقشه</span>
+            </a>
         </div>
     </div>
 

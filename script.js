@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     const video = document.getElementById('intro-video');
     
-    // تلاش برای پخش خودکار به صورت بی‌صدا
+    // پخش خودکار ویدئو به صورت بی‌صدا
     video.muted = true;
     let playPromise = video.play();
 
     if (playPromise !== undefined) {
         playPromise.catch(error => {
-            // اگر مرورگر به دلیل سیاست‌های امنیتی autoplay را مسدود کرد، با اولین کلیک کاربر ویدئو پخش شود
+            // رفع محدودیت مرورگر برای Autoplay در صورت نیاز به کلیک کاربر
             document.addEventListener('click', function handler() {
                 video.muted = true;
                 video.play();
@@ -18,12 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // رخداد اتمام پخش ویدئو
     video.onended = function() {
-        // تاخیر 0.5 ثانیه (500 میلی‌ثانیه) پس از پایان ویدئو
+        // تاخیر 0.5 ثانیه پس از پایان ویدئو
         setTimeout(() => {
             const formContainer = document.getElementById('form-container');
             formContainer.classList.add('show');
             
-            // فوکوس روی فیلد کد ملی
             const inputField = document.getElementById('national-id-input');
             if(inputField) inputField.focus();
         }, 500);
@@ -62,4 +61,31 @@ function showInvitation(name) {
     
     pageInv.classList.add('active');
     pageInv.style.display = 'flex';
+}
+
+// تابع بازگشت به صفحه اول و لود مجدد ویدئو
+function goBackToHome() {
+    const pageHome = document.getElementById('page-home');
+    const pageInv = document.getElementById('page-invitation');
+    const video = document.getElementById('intro-video');
+    const inputField = document.getElementById('national-id-input');
+    const errorDiv = document.getElementById('error-message');
+    const formContainer = document.getElementById('form-container');
+
+    // پاک کردن فیلد کد ملی و خطاها
+    if(inputField) inputField.value = '';
+    if(errorDiv) errorDiv.innerText = '';
+    
+    // پنهان کردن فرم و بازنشانی ویدئو
+    formContainer.classList.remove('show');
+    
+    pageInv.classList.remove('active');
+    pageInv.style.display = 'none';
+    
+    pageHome.classList.add('active');
+    pageHome.style.display = 'flex';
+
+    // ریست کردن و پخش مجدد ویدئو از ابتدا
+    video.currentTime = 0;
+    video.play();
 }
