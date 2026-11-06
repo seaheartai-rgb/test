@@ -332,10 +332,10 @@ button[type="submit"]:hover {
         width: 60%;
         height: 140px;
     }
-    /*.designer-badge {
+    .designer-badge {
         font-size: 0.65rem;
         padding: 4px 8px;
         bottom: 10px;
         left: 10px;
-    }*/
+    }
 }
