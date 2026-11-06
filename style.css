@@ -298,7 +298,7 @@ button[type="submit"]:hover {
 }
 
 /* کادر بلر و ثابت طراح در گوشه پایین و سمت چپ هر دو صفحه */
-.designer-badge {
+/*.designer-badge {
     position: fixed;
     bottom: 15px;
     left: 15px;
@@ -315,7 +315,7 @@ button[type="submit"]:hover {
     z-index: 999;
     letter-spacing: 0.5px;
     pointer-events: none;
-}
+}*/
 
 @media (max-width: 480px) {
     .guest-name-overlay {
@@ -332,10 +332,10 @@ button[type="submit"]:hover {
         width: 60%;
         height: 140px;
     }
-    .designer-badge {
+    /*.designer-badge {
         font-size: 0.65rem;
         padding: 4px 8px;
         bottom: 10px;
         left: 10px;
-    }
+    }*/
 }
